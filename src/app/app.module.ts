@@ -1,14 +1,37 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
+import { SobreNosotrosComponent } from './sobre-nosotros/sobre-nosotros.component';
+import { LibrosComponent } from './libros/libros.component';
+import { CabeceraComponent } from './cabecera/cabecera.component';
+import { InicioComponent } from './inicio/inicio.component';
+import { Inicio2Component } from './inicio2/inicio2.component';
+import { InformacionComponent } from './informacion/informacion.component';
+
+const rutas: Routes = [
+
+  {path: 'listado-libros', component: LibrosComponent },
+  {path: 'informacion/:libroId', component: InformacionComponent},
+  {path: 'informacion', redirectTo: '/' },
+  {path: '', component: InicioComponent, pathMatch: 'full' },
+  {path: '**', redirectTo: '/' }
+];
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SobreNosotrosComponent,
+    LibrosComponent,
+    CabeceraComponent,
+    InicioComponent,
+    Inicio2Component,
+    InformacionComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(rutas)
   ],
   providers: [],
   bootstrap: [AppComponent]
