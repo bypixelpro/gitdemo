@@ -22,13 +22,13 @@ export class InformacionComponent implements OnInit {
 
   ngOnInit(): void {
     this.rutausuario.params.subscribe(params => {
-      this.libroId = params['libroId']
+      this.libroId = params['libroId'];
       this.libroClick = this.libroBuscador();
     });
   }
 
   filtroId(libro) {
-    return libro.id == this;
+    return libro.id === this;
   }
 
   libroBuscador() {
