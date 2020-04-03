@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient, HttpResponse } from '@angular/common/http';
+import { LibroclickedService } from '../libroclicked.service';
 
 @Component({
   selector: 'app-libros',
@@ -7,17 +9,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LibrosComponent implements OnInit {
 
-  libros: Array<object>;
-  constructor(){
-   this.libros = [
-     {id:'1', titulo: 'Te veré bajo el hielo', autor:'Robert Bryndza'},
-     {id:'2', titulo: 'Dime quién soy', autor:'Julia Navarro'},
-     {id:'3', titulo: 'El día que se perdió la cordura', autor:'Javier Castillo'}
-   ]
+  libros: any;
+  errorHttp: boolean;
+
+
+  constructor(private http: HttpClient, public Libroclicked: LibroclickedService) {
+
  }
 
 
   ngOnInit(): void {
+    this.cargarLista();
+  }
+
+  cargarLista() {
+    this.http.get('assets/lista-libros.json').subscribe(
+     (respuesta: Response) => {this.libros = respuesta;},
+     (respuesta: Response) => {this.errorHttp = true}
+    )
+
+  }
+
+  agregarLibro(_libroVisto) {
+    this.Libroclicked.libroVisto(_libroVisto);
   }
 
 }

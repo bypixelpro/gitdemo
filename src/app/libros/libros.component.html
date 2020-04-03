@@ -1,6 +1,8 @@
 <ul>
   <li *ngFor="let libro of libros">
-    <a [routerLink]="['/informacion', libro.id]">{{libro.titulo}}</a>
+    <a
+    (click)="agregarLibro(libro)"
+    [routerLink]="['/informacion', libro.id]">{{libro.titulo}}</a>
   </li>
 </ul>
 

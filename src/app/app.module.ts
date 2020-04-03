@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { SobreNosotrosComponent } from './sobre-nosotros/sobre-nosotros.component';
@@ -9,6 +10,7 @@ import { CabeceraComponent } from './cabecera/cabecera.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { Inicio2Component } from './inicio2/inicio2.component';
 import { InformacionComponent } from './informacion/informacion.component';
+import { LibroclickedService } from './libroclicked.service';
 
 const rutas: Routes = [
 
@@ -31,9 +33,12 @@ const rutas: Routes = [
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     RouterModule.forRoot(rutas)
   ],
-  providers: [],
+  providers: [
+    LibroclickedService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

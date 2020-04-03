@@ -10,13 +10,13 @@ export class InformacionComponent implements OnInit {
 
   libros: Array<object>;
   libroId: number;
-  libroClick: any[];
+  libroClick: any;
 
-  constructor(private rutausuario:ActivatedRoute) {
+  constructor(private rutausuario: ActivatedRoute) {
    this.libros = [
-     {id:'1', titulo: 'Te veré bajo el hielo', autor:'Robert Bryndza'},
-     {id:'2', titulo: 'Dime quién soy', autor:'Julia Navarro'},
-     {id:'3', titulo: 'El día que se perdió la cordura', autor:'Javier Castillo'}
+     {id: '1', titulo: 'Te veré bajo el hielo', autor: 'Robert Bryndza'},
+     {id: '2', titulo: 'Dime quién soy', autor: 'Julia Navarro'},
+     {id: '3', titulo: 'El día que se perdió la cordura', autor: 'Javier Castillo'}
    ];
  }
 
