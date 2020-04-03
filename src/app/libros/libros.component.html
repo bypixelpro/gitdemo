@@ -1,4 +1,5 @@
-
+<div class="loader" *ngIf="cargando"></div>
+<div *ngIf="errorHttp">Hay un error con la carga del archivo</div>
 <ul>
   <li *ngFor="let libro of libros">
     <a
@@ -6,6 +7,5 @@
     [routerLink]="['/informacion', libro.id]">{{libro.titulo}}</a>
   </li>
 </ul>
-<div class="loader" *ngIf="cargando"></div>
-<div *ngIf="errorHttp">Hay un error con la carga del archivo</div>
+
 
